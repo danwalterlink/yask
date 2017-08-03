@@ -1,41 +1,46 @@
-     _     _           _
-    | |   | |         | |
-    | |___| |_____  __| | ____
-    |_____  (____ |/ _  |/ ___)
-     _____| / ___ ( (_| | |
-    (_______\_____|\____|_|
+          _____    _____________  __.
+ ___.__. /  _  \  /   _____/    |/ _|
+<   |  |/  /_\  \ \_____  \|      <
+ \___  /    |    \/        \    |  \
+ / ____\____|__  /_______  /____|__ \
+ \/            \/        \/        \/
+     yggdrasILK
 
-    # Yet Another Dotfile Repo v1.1
-    # Now with Prezto and Vundle!
+    SubModules:
+      intrfclr
+      n
+      metamanager
 
-[![Join the chat at https://gitter.im/skwp/dotfiles](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/skwp/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+      /*
+      TODO: updateFile atom; chrome; vim: plugins update
+            npm installation
+            abstract out installers: - apt-get/yaourt/pacman/homebrew/
+            hashtables for things to be installed
+            add query for git username and pull the tables from antother dir?
+      */
+
+      TODO:
+            change styling of powerbar;
 
 #### sh -c "\`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh \`"
 
-**Always be sure to run `rake update` after pulling to ensure plugins are updated**
+### SCREW RAKE, we do it JS-style...
+Get ready for n :: node-version-manager
+Always be sure to run `rake update` after pulling to ensure plugins are updated**
 
 ## What is YADR?
 
 **YADR is an opinionated dotfile repo that will make your heart sing**
-
-  * The best bits of all the top dotfile repos, vim and zsh plugins curated in one place, into a simple and cohesive way of working.
-  * More than 90 vim plugins, all under one roof, working together, each plugin researched and configured to be at its best, often with better shortcut keys.
-  * Many zsh plugins, starting with the wonderful Prezto base, and adding a few niceties on top.
-  * All things are vimized: irb, postgres command line, etc.
-  
-*Linux/Ubuntu is not supported! If it works, great. If it doesn't, please don't complain. You may need to install zsh if you don't already have it.*
-
-## Mailing List
-
-Got questions, concerns, want to hear announcements? Join the [Google Group](https://groups.google.com/forum/#!forum/yadr-users)
-
-Please use GitHub Issues for pull requests or bug reports only.
+**Well, it makes my heart sing not having to reinstall everything from scratch when setting up my dev-machine**
+**I'll get an Arch-Linux version running sooner or later (again, no complaining. My maintenance shedule, my rules ;)**
+**On the other hand, feel free to make it YOUR own, but please be considerate, read the (hopefully provided) docs and understand how the generation of the file works - just inspect the install.sh!**
 
 ## Screenshot
 
 ![screenshot](http://i.imgur.com/3C1Ze.png)
 
-## Installation
+## running through my installation procedure
 
 To get started please run:
 
@@ -49,9 +54,8 @@ about each one, use:
 ```bash
 sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" -s ask
 ```
-
-## Wait, you're not done! Do this:
-
+Should you be interested in modifying the base files: remember that there are hashtables for the bulk installation, and partial scripts in the yadr folder; start there!
+You will undoubtebly find the starting pages to be a tad cryptic for the uninitiated. Nothing can do 'bout that... It's in the cascading nature of partials that make them a bit complicated.
 #### Install iTerm Solarized Colors
 YADR will install Solarized colorschemes into your iTerm. Go to Profiles => Colors => Load Presets to pick Solarized Dark.
 

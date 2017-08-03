@@ -1,0 +1,7 @@
+Bundle "junegunn/goyo.vim"
+Bundle "ElmCast/elm-vim"
+Bundle "w0rp/ale"
+Bundle "vim-scripts/Solarized"
+Bundle "surround.vim"
+Bundle "elzr/vim-json"
+Bundle "Valloric/YouCompleteMe"

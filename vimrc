@@ -1,5 +1,3 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -19,8 +17,7 @@ set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 
-" This makes vim act like all other editors, buffers can
-" exist in the background without being in a window.
+" buffer in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
@@ -76,7 +73,7 @@ filetype indent on
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
-set nowrap       "Don't wrap lines
+set wrap         "DO wrap lines
 set linebreak    "Wrap lines at convenient points
 
 " ================ Folds ============================
