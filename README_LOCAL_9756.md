@@ -1,3 +1,5 @@
+# yASK
+```
           _____    _____________  __.
  ___.__. /  _  \  /   _____/    |/ _|
 <   |  |/  /_\  \ \_____  \|      <
@@ -7,55 +9,34 @@
      yggdrasILK
 
     SubModules:
-      intrfclr
-      n
-      metamanager
+      Yntrfclr
+      Yne
+      nginY (mmngr)
+```
 
+## TODO
 
-      /*
-      TODO: updateFile atom; chrome; vim: plugins update
-            npm installation
-            abstract out installers: - apt-get/yaourt/pacman/homebrew/
-            hashtables for things to be installed
-            add query for git username and pull the tables from antother dir?
-      */
+* add environment specific installation to environment.
 
-      TODO:
-            change styling of powerbar;
+* rewrite in javascript
+- check for env.arch -> install different things on windows / osx / linux (debian, arch, alpine, ubuntu)
+- with package managers installed, install js envionment through the package managers
 
-#### sh -c "\`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh \`"
+* updateFile atom; chrome; vim: plugins update
+* npm installation
+* abstract out installers: - apt-get/yaourt/pacman/homebrew/
+* hashtables for things to be installed
+* add query for git username and pull the tables from antother dir?
 
-### SCREW RAKE, we do it JS-style...
-Get ready for n :: node-version-manager
-Always be sure to run `rake update` after pulling to ensure plugins are updated**
+### sh -c "\`curl -fsSL <https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh> \`"
 
-## What is YADR?
+## screw ruby. All hail JS!
 
-**YADR is an opinionated dotfile repo that will make your heart sing**
-<<<<<<< HEAD
-**Well, it makes my heart sing not having to reinstall everything from scratch when setting up my dev-machine**
-**I'll get an Arch-Linux version running sooner or later (again, no complaining. My maintenance shedule, my rules ;)**
-**On the other hand, feel free to make it YOUR own, but please be considerate, read the (hopefully provided) docs and understand how the generation of the file works - just inspect the install.sh!**
-=======
+Get ready for Yne :: node-version-manager
 
-  * The best bits of all the top dotfile repos, vim and zsh plugins curated in one place, into a simple and cohesive way of working.
-  * More than 90 vim plugins, all under one roof, working together, each plugin researched and configured to be at its best, often with better shortcut keys.
-  * Many zsh plugins, starting with the wonderful Prezto base, and adding a few niceties on top.
-  * All things are vimized: irb, postgres command line, etc.
+## What is yASK?
 
-*Linux/Ubuntu is not supported! If it works, great. If it doesn't, please don't complain. You may need to install zsh if you don't already have it.*
-*That being said, check the Docker section below*
-
-## Mailing List
-
-Got questions, concerns, want to hear announcements? Join the [Google Group](https://groups.google.com/forum/#!forum/yadr-users)
-
-Please use GitHub Issues for pull requests or bug reports only.
->>>>>>> 89fab8cc258868dc19a841b744d5e085e53bdf4e
-
-## Screenshot
-
-![screenshot](https://i.imgur.com/3C1Ze.png)
+Why ask? comprises opinionated dotfile and a 0 click install for the most needed things for my development environment
 
 ## running through my installation procedure
 
@@ -65,27 +46,37 @@ To get started please run:
 sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
 ```
 
-**Note:** YADR will automatically install all of its subcomponents. If you want to be asked
-about each one, use:
+if you want to get asked for every subcomponent:
 
 ```bash
 sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" -s ask
 ```
-Should you be interested in modifying the base files: remember that there are hashtables for the bulk installation, and partial scripts in the yadr folder; start there!
+
+Should you be interested in modifying the base files: remember that there are hashtables for the bulk installation, and partial scripts in the basefolder; start there!
 You will undoubtebly find the starting pages to be a tad cryptic for the uninitiated. Nothing can do 'bout that... It's in the cascading nature of partials that make them a bit complicated.
-#### Install iTerm Solarized Colors
+
+### Install iTerm Solarized Colors
+
 YADR will install Solarized colorschemes into your iTerm. Go to Profiles => Colors => Load Presets to pick Solarized Dark.
 
-#### Remap caps-lock to escape with [Seil](https://pqrs.org/osx/karabiner/seil.html.en)
-The escape key is the single most used key in vim.  Old keyboards used to have Escape where Tab is today. Apple keyboards are the worst with their tiny Esc keys. But all this is fixed by remapping Caps to Escape.  If you're hitting a small target in the corner, you are slowing yourself down considerably, and probably damaging your hands with repetitive strain injuries.
+#### TODO: automate picking color scheme ; load different colorschemes from : 
+
+* [ethan's excellent solarized theme|http://ethanschoonover.com/solarized]
+* [https://github.com/altercation/solarized|full repo for pulling]
+      for the full repo, choose the latter.
+
+* Remap caps-lock to escape with [Seil](https://pqrs.org/osx/karabiner/seil.html.en)
 
 #### Set up a system wide hotkey for iTerm (Keys=>Hotkey)
+
 Recommended Cmd-Escape, which is really Cmd-Capslock.
 
 #### In iTerm, uncheck "Use Lion-style full screen" on General
+
 This will give you fast full screen windows that are switchable without switching to spaces.
 
 #### in MacVim, uncheck Prefer native fullscreen under Advanced settings
+
 Same as iTerm. The Lion style spaces navigation slows everything down for no reason.
 
 ## If you want to run vim in terminal
@@ -115,9 +106,9 @@ rake update
 
 Read on to learn what YADR provides!
 
-### [Homebrew](https://brew.sh/)
+### [Homebrew](http://mxcl.github.com/homebrew/)
 
-Homebrew is _the missing package manager for macOS_. Installed automatically.
+Homebrew is _the missing package manager for OSX_. Installed automatically.
 
 We automatically install a few useful packages including ctags, git, macvim, hub, and the silver searcher ('ag')
 Note that our autocomplete plugin requires a MacVim that supports Lua. The installer knows how to install it, but if you had one installed before, you may need to manually remove your old MacVim.
@@ -132,7 +123,7 @@ We've also provided lots of enhancements:
 * `Ctrl-x,Ctrl-l` to insert output of last command
 * Fuzzy matching - if you mistype a directory name, tab completion will fix it
 * [fasd](https://github.com/clvv/fasd) integration - hit `z` and partial match for recently used directory. Tab completion enabled.
-* [Prezto - the power behind YADR's zsh](https://github.com/sorin-ionescu/prezto)
+* [Prezto - the power behind YADR's zsh](http://github.com/sorin-ionescu/prezto)
 * [How to add your own ZSH theme](doc/zsh/themes.md)
 
 ### Aliases
@@ -302,32 +293,18 @@ of plugins above to learn more.
 * [Overriding vim settings with ~/.vimrc.after and friends](doc/vim/override.md)
 * [Adding your own vim plugins](doc/vim/manage_plugins.md)
 
-## Testing with Docker
-
-We can use Docker to test some changes in a **Linux** Container.
-
-Assuming your host system has Docker & Docker Compose properly installed, run:
-
-    docker-compose run dotfiles
-
-This will build the container image it never built it before (which may take a while -- future times will be faster) and then run a `zsh` session inside that container for you.
-There you can play around, test commands, aliases, etc.
-
-*Warning*: this repo is primarly macOS oriented. So any support for Linux can only be done with the help of the community.
-
-
 ## Misc
 
 * [Credits & Thanks](doc/credits.md)
-* [Other recommended macOS productivity tools](doc/macos_tools.md)
-* [Yan's Blog](https://yanpritzker.com)
+* [Other recommended OSX productivity tools](doc/osx_tools.md)
+* [Yan's Blog](http://yanpritzker.com)
 
-### macOS Hacks
+### OSX Hacks
 
-The macOS file is a bash script that sets up sensible defaults for devs and power users
-under macOS. Read through it before running it. To use:
+The osx file is a bash script that sets up sensible defaults for devs and power users
+under osx. Read through it before running it. To use:
 
-    bin/macos
+    bin/osx
 
 These hacks are Lion-centric. May not work for other OS'es. My favorite mods include:
 
@@ -351,9 +328,11 @@ brew uninstall vim
 rvm system do brew install vim --with-lua
 ```
 
-### [Pry](https://pryrepl.org/)
+
+### [Pry](http://pry.github.com/)
 
 Pry offers a much better out of the box IRB experience with colors, tab completion, and lots of other tricks. You can also use it
 as an actual debugger by installing [pry-nav](https://github.com/nixme/pry-nav).
 
 [Learn more about YADR's pry customizations and how to install](doc/pry.md)
+
