@@ -1,7 +1,0 @@
-"dependencies": {
-  "create-react-app": "latest",
-  "create-preact-app": "create-react-app my-app --scripts-version @just-boris/preact-scripts",
-  "yeoman": "latest",
-  "next": "latest",
-  "nodemon": "latest",
-}

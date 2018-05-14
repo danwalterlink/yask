@@ -1,119 +1,123 @@
-          _____    _____________  __.
+# yASK
+          ____      _______ _____  __
  ___.__. /  _  \  /   _____/    |/ _|
 <   |  |/  /_\  \ \_____  \|      <
  \___  /    |    \/        \    |  \
  / ____\____|__  /_______  /____|__ \
  \/            \/        \/        \/
-     yggdrasILK
+@author:yggdrasILK
 
-    SubModules:
-      intrfclr
-      n
-      metamanager
-
-
-      /*
-      TODO: updateFile atom; chrome; vim: plugins update
-            npm installation
-            abstract out installers: - apt-get/yaourt/pacman/homebrew/
-            hashtables for things to be installed
-            add query for git username and pull the tables from antother dir?
-      */
-
-      TODO:
-            change styling of powerbar;
-
-#### sh -c "\`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh \`"
-
-### SCREW RAKE, we do it JS-style...
-Get ready for n :: node-version-manager
-Always be sure to run `rake update` after pulling to ensure plugins are updated**
-
-## What is YADR?
-
-**YADR is an opinionated dotfile repo that will make your heart sing**
-<<<<<<< HEAD
-**Well, it makes my heart sing not having to reinstall everything from scratch when setting up my dev-machine**
-**I'll get an Arch-Linux version running sooner or later (again, no complaining. My maintenance shedule, my rules ;)**
-**On the other hand, feel free to make it YOUR own, but please be considerate, read the (hopefully provided) docs and understand how the generation of the file works - just inspect the install.sh!**
-=======
-
-  * The best bits of all the top dotfile repos, vim and zsh plugins curated in one place, into a simple and cohesive way of working.
-  * More than 90 vim plugins, all under one roof, working together, each plugin researched and configured to be at its best, often with better shortcut keys.
-  * Many zsh plugins, starting with the wonderful Prezto base, and adding a few niceties on top.
-  * All things are vimized: irb, postgres command line, etc.
-
-*Linux/Ubuntu is not supported! If it works, great. If it doesn't, please don't complain. You may need to install zsh if you don't already have it.*
-*That being said, check the Docker section below*
-
-## Mailing List
-
-Got questions, concerns, want to hear announcements? Join the [Google Group](https://groups.google.com/forum/#!forum/yadr-users)
-
-Please use GitHub Issues for pull requests or bug reports only.
->>>>>>> 89fab8cc258868dc19a841b744d5e085e53bdf4e
-
-## Screenshot
-
-![screenshot](https://i.imgur.com/3C1Ze.png)
+## What is yask[whyAsk]?
+Kinda self explanatory. I try to resolve all my painpoints considering setting up new dev-systems.
+Such a one should be:
+    - easily-extendible
+    - throwaway (aka playful)
+    - as one-click as possible
+    - remember new stuff on its own
+    - resilient
+    - self-healing
+    - similar on as many systems as possible
+    - cli-only operating system are preferred.
+    - gui can be installed
+    - pinn like installation of os
 
 ## running through my installation procedure
+TODO: wget source script.
 
-To get started please run:
+Should you be interested in modifying the base files: don't. Unless you want to help with the project, of course.
+All you should be doing is keeping your system pristine,
+- uninstall old stuff you don't need
+- don't install stuff you don't need (should be first priority)
+to keep a lean machine!
 
-```bash
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
-```
+Please let my crawler and machine-learning tools compare your settings with others, so I can improve the experience for everybody involved.
 
-**Note:** YADR will automatically install all of its subcomponents. If you want to be asked
-about each one, use:
+bright minimalistic themes are the baseline for everything yask.
+switchable to dark minimalistic themes with different colored accents (chosen from bkgrColor?)
 
-```bash
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" -s ask
-```
-Should you be interested in modifying the base files: remember that there are hashtables for the bulk installation, and partial scripts in the yadr folder; start there!
-You will undoubtebly find the starting pages to be a tad cryptic for the uninitiated. Nothing can do 'bout that... It's in the cascading nature of partials that make them a bit complicated.
-#### Install iTerm Solarized Colors
-YADR will install Solarized colorschemes into your iTerm. Go to Profiles => Colors => Load Presets to pick Solarized Dark.
+I also try to follow the UNIX-philosophy of:
+- everything is a file (data)
+- keep every piece lean, small and reusable
+- use pure functions wherever possible, keeping state in stores with checks.
 
-#### Remap caps-lock to escape with [Seil](https://pqrs.org/osx/karabiner/seil.html.en)
-The escape key is the single most used key in vim.  Old keyboards used to have Escape where Tab is today. Apple keyboards are the worst with their tiny Esc keys. But all this is fixed by remapping Caps to Escape.  If you're hitting a small target in the corner, you are slowing yourself down considerably, and probably damaging your hands with repetitive strain injuries.
+## Vim and Emacs as default programs for everything
+A basic philosophy is:
+Don't use your mouse, unless you're playing games, then use a VR-Headset and a Katana. It's way better!
 
-#### Set up a system wide hotkey for iTerm (Keys=>Hotkey)
-Recommended Cmd-Escape, which is really Cmd-Capslock.
+Another project of mine is to think of types of GUI's and interaction with non-2-dimensional visual representations (as VR/AR and any sub/superset thereof).
+I am of the firm conviction that switching to mouse input severely hampers your input speed and thinking clarity. Since the primary way to interact with textual media is with the keyboard, we should be as familiar as possible with it, relying less and less to archaic clicking devices like a mouse (or touchpad, even if they use gestures).
+Of course other input devices will be highly welcome once we reach a different stage of represenation, but unless we get there, the keyboard reigns supreme.
 
-#### In iTerm, uncheck "Use Lion-style full screen" on General
-This will give you fast full screen windows that are switchable without switching to spaces.
+Getting fluent in vim, using the keybindings literally everywhere, will make you much more intimate with text. Get you to do more sweeping changes and think more algorithmically faster, since you can get regexes to manipulate text instead of replacing strings manually.
 
-#### in MacVim, uncheck Prefer native fullscreen under Advanced settings
-Same as iTerm. The Lion style spaces navigation slows everything down for no reason.
+For the completely uninitiated in vim:
+#TODO: add cli-tutorial for vim/emacs-evil
 
-## If you want to run vim in terminal
+Further details below to the installation: [textLinkToBottom] -> true hypertext, baby
 
-* Make sure you install Solarized colorscheme in your terminal!
-* If you don't want to use solarized terminal, then make sure you do this:
+## Dependencies:
+- docker/kubernetes cluster-setup (boot2docker?)
+- compiler platform : C / LLVM/CMAKE / Haskell / Rust
+- nodejs + emscripten => webassembly
+- installation of systemsettings
+- getting systemd's up running => self-healing configurations (yaskd)
+    - setting : tree generation (yaml - human readable format )
+    - tiling window manager setup
+    - setup and start fixed window set on startup (windows, osx etc.)
+    - start updates and ensure functionality (with previously run things) -> rollback if necessary
+- 
 
-      let g:yadr_using_unsolarized_terminal = 1
-      # in ~/.vimrc.before
+## SubModules:
+- 
+- intrfclr
+- mmngr
+- jsoos
+- webtorrent
+- dotenv
+- vim
+- pkgManagers(yaourt, pacman, scoop, powershell-get, npm)
+    abstract out installers: - apt-get/yaourt/pacman/homebrew/
+    hashtables for things to be installed
+    add query for git username and pull the tables from antother dir?
 
-* If you want to use an alternate colorcheme like Gruvbox, then in your `~/.vimrc.after` do:
+- .NET-core
+- Haskell
+- ReasonML
+- Functional Javascript
+- C/C++
 
-      let g:yadr_disable_solarized_enhancements = 1
-      colorscheme base16-twilight
+## sane OS defaults
+- keyboard layout set
+- remap keys
+    - capslock = backspace
+    - rightShift = escape
+    - vim-keybindings for everything.
+    - log into accounts (google, facebook etc.)
 
-### Upgrading
+docker provides abstractions for tmux instances : can run tmux with different docker instances and save the combined configuration
 
-Upgrading is easy.
+network ssh mapper: automatically build home pod-network 
+            
+### Windows
+    * enable developer mode windows
+    * cmake
+    * llvm
+    * nodejs
+    * autoupdate powershell from cli
+    * scoop \ chocolatey \ psget
+    * install scripts as powershell scripts
+    * enable LSW
 
-```bash
-cd ~/.yadr
-git pull --rebase
-rake update
-```
+### Linux (archLinux/alpineLinux/ubuntu)
+    * build tools update
+
+## 
+Get ready for n :: node-version-manager
+since the OS-manager is uncoupled and works with plain JS - we can always be sure to have our development environment around by installing the yask/core, which, of course you can hedge to be your own!
 
 ## What's included, and how to customize?
 
-Read on to learn what YADR provides!
+Read on to learn what yask provides!
 
 ### [Homebrew](https://brew.sh/)
 
@@ -132,7 +136,7 @@ We've also provided lots of enhancements:
 * `Ctrl-x,Ctrl-l` to insert output of last command
 * Fuzzy matching - if you mistype a directory name, tab completion will fix it
 * [fasd](https://github.com/clvv/fasd) integration - hit `z` and partial match for recently used directory. Tab completion enabled.
-* [Prezto - the power behind YADR's zsh](https://github.com/sorin-ionescu/prezto)
+* [Prezto - the power behind yask's zsh](https://github.com/sorin-ionescu/prezto)
 * [How to add your own ZSH theme](doc/zsh/themes.md)
 
 ### Aliases
@@ -146,7 +150,7 @@ mnemonic aliases. Please feel free to edit them:
 
 ### Git Customizations:
 
-YADR will take over your `~/.gitconfig`, so if you want to store your usernames, please put them into `~/.gitconfig.user`
+yask will take over your `~/.gitconfig`, so if you want to store your usernames, please put them into `~/.gitconfig.user`
 
 It is recommended to use this file to set your user info. Alternately, you can set the appropriate environment variables in your `~/.secrets`.
 
@@ -163,40 +167,30 @@ It is recommended to use this file to set your user info. Alternately, you can s
   * Slightly improved colors for diff
   * `gdmb` (g)it (d)elete (m)erged (b)ranches - Deletes all branches already merged on current branch
 
-### RubyGems
-
-A .gemrc is included. Never again type `gem install whatever --no-ri --no-rdoc`. `--no-ri --no-rdoc` is done by default.
-
 ### Tmux configuration
-
 `tmux.conf` provides some sane defaults for tmux on Mac OS like a powerful status bar and vim keybindings.
 You can customize the configuration in `~/.tmux.conf.user`.
 
 ### Vimization of everything
-
 The provided inputrc and editrc will turn your various command line tools like mysql and irb into vim prompts. There's
 also an included Ctrl-R reverse history search feature in editrc, very useful in irb, postgres command line, and etc.
 
 ### Github Issues: [ghi gem](https://github.com/stephencelis/ghi)
-
 We include the `ghi` command. Try `ghi list` and have fun managing issues from command line!
 
-
 ## Vim - What's included?
-
  * [Navigation - NERDTree, EasyMotion, CtrlP and more](doc/vim/navigation.md)
  * [Text Objects - manipulate ruby blocks, and more](doc/vim/textobjects.md)
  * [Code manipulation - rails support, comments, snippets, highlighting](doc/vim/coding.md)
  * [Utils - indents, paste buffer management, lots more](doc/vim/utils.md)
  * [General enhancements that don't add new commands](doc/vim/enhancements.md)
 
-A list of some of the most useful commands that YADR provides in vim are
+A list of some of the most useful commands that yask provides in vim are
 included below. This is not a comprehensive list. To get deeper knowledge,
 practice a few of these every day, and then start looking into the lists
 of plugins above to learn more.
 
 #### Navigation
-
  * `,z` - go to previous buffer (:bp)
  * `,x` - go to next buffer (:bn)
  * `Cmd-j` and `Cmd-k` to move up and down roughly by functions (`Alt` in Linux)
@@ -204,7 +198,6 @@ of plugins above to learn more.
  * `Ctrl-i` - opposite of Ctrl-O (again, this is standard)
 
 #### Search/Code Navigation
-
  * `,f` - instantly Find definition of class (must have exuberant ctags installed)
  * `,F` - same as `,f` but in a vertical split
  * `,gf` or `Ctrl-f` - same as vim normal gf (go to file), but in a vertical split (works with file.rb:123 line numbers also)
@@ -226,7 +219,6 @@ of plugins above to learn more.
 
 
 #### File Navigation
-
  * `,t` - CtrlP fuzzy file selector
  * `,b` - CtrlP buffer selector - great for jumping to a file you already have open
  * `Cmd-Shift-M` - jump to method - CtrlP tag search within current buffer
@@ -236,7 +228,6 @@ of plugins above to learn more.
  * `Cmd-Shift-P` - Clear CtrlP cache
 
 #### Better keystrokes for common editing commands
-
  * Ctrl-Space to autocomplete. Tab for snipmate snippets.
  * `,#` `,"` `,'` `,]` `,)` `,}` to surround a word in these common wrappers. the # does #{ruby interpolation}. works in visual mode (thanks @cj). Normally these are done with something like `ysw#`
  * `Cmd-'`, `Cmd-"`, `Cmd-]`, `Cmd-)`, etc to change content inside those surrounding marks. You don't have to be inside them (`Alt` in Linux)
@@ -244,7 +235,6 @@ of plugins above to learn more.
  * `,ci` to change inside any set of quotes/brackets/etc
 
 #### Tabs, Windows, Splits
-
  * Use `Cmd-1` thru `Cmd-9` to switch to a specific tab number (like iTerm and Chrome) - and tabs have been set up to show numbers (`Alt` in Linux)
  * `Ctrl-h,l,j,k` - to move left, right, down, up between splits. This also works between vim and tmux splits thanks to `vim-tmux-navigator`.
  * `Q` - Intelligent Window Killer. Close window `wincmd c` if there are multiple windows to same buffer, or kill the buffer `bwipeout` if this is the last window into it.
@@ -254,7 +244,6 @@ of plugins above to learn more.
  * `,qc` - close quickfix
 
 #### Utility
-
  * `Ctrl-p` after pasting - Use `p` to paste and `Ctrl-p` to cycle through previous pastes. Provided by YankRing.
  * `,yr` - view the yankring - a list of your previous copy commands. also you can paste and hit `ctrl-p` for cycling through previous copy commands
  * `crs`, `crc`, `cru` via abolish.vim, coerce to snake_case, camelCase, and UPPERCASE. There are more `:help abolish`
@@ -280,80 +269,27 @@ of plugins above to learn more.
  * `Cmd-/` - toggle comments (usually gcc from tComment) (`Alt` in Linux)
  * `gcp` (comment a paragraph)
 
-#### Rails & Ruby
-
- * `,vv` and `,cc` to switch between view and controller - these are maps to :Rcontroller and :Rview. Explore the :R<Tab> family of commands for more fun from rails.vim!
- * `,rs` and `,rl` to run rspec or a spec line in iTerm (check iTerm window for results)
- * `,ss` and `,sl` for the same using `spring rspec` which makes your Rails specs faster by caching the Rails env (must have spring gem installed)
- * vim-ruby-refactoring - try `,rem`, `,rel` to extract methods or let statements
- * `Ctrl-s` - Open related spec in a split. Similar to :A and :AV from rails.vim but is also aware of the fast_spec dir and faster to type
- * `:Bopen [gem name]` to navigate to a gem (@tpope/vim-bundler)
- * `,gcp` - Grep Current Partial to find references to the current view partial
- * `,orb` - outer ruby block. takes you one level up from nested blocks (great for rspec)
-
 #### Vim Dev
-
  * `,vc` - (Vim Command) copies the command under your cursor and executes it in vim. Great for testing single line changes to vimrc.
  * `,vr` - (Vim Reload) source current file as a vim file
 
-## Extending and overriding YADR settings
-
+## Extending and overriding yask settings
 * [Debugging vim keymappings](doc/vim/keymaps.md)
 * [Overriding vim settings with ~/.vimrc.after and friends](doc/vim/override.md)
 * [Adding your own vim plugins](doc/vim/manage_plugins.md)
 
-## Testing with Docker
-
-We can use Docker to test some changes in a **Linux** Container.
-
-Assuming your host system has Docker & Docker Compose properly installed, run:
-
-    docker-compose run dotfiles
-
-This will build the container image it never built it before (which may take a while -- future times will be faster) and then run a `zsh` session inside that container for you.
-There you can play around, test commands, aliases, etc.
-
-*Warning*: this repo is primarly macOS oriented. So any support for Linux can only be done with the help of the community.
-
-
 ## Misc
-
 * [Credits & Thanks](doc/credits.md)
 * [Other recommended macOS productivity tools](doc/macos_tools.md)
 * [Yan's Blog](https://yanpritzker.com)
 
 ### macOS Hacks
-
 The macOS file is a bash script that sets up sensible defaults for devs and power users
 under macOS. Read through it before running it. To use:
 
     bin/macos
 
 These hacks are Lion-centric. May not work for other OS'es. My favorite mods include:
-
   * Ultra fast key repeat rate (now you can scroll super quick using j/k)
   * No disk image verification (downloaded files open quicker)
   * Display the ~/Library folder in finder (hidden in Lion)
-
-### Macvim troubles with Lua?
-```
-brew uninstall macvim
-brew remove macvim
-brew cleanup
-brew install macvim --custom-icons --with-override-system-vim --with-lua --with-luajit
-```
-
-### Terminal Vim troubles with Lua?
-Installing terminal vim (with lua) with an RVM managed Ruby can cause the neocomplete plugin to segfault. Try uninstalling vim, then installing with system ruby:
-
-```
-brew uninstall vim
-rvm system do brew install vim --with-lua
-```
-
-### [Pry](https://pryrepl.org/)
-
-Pry offers a much better out of the box IRB experience with colors, tab completion, and lots of other tricks. You can also use it
-as an actual debugger by installing [pry-nav](https://github.com/nixme/pry-nav).
-
-[Learn more about YADR's pry customizations and how to install](doc/pry.md)

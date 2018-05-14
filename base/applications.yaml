@@ -1,0 +1,71 @@
+# application pool installed on system
+# for parts espeially mentioned with os, only indicated os needs version to be instaleld
+# THIS FILE IS GENERATED FROM OTHER CONFIGS! DO CHANGE THE CONFIG-GENERATION SINCE THIS FILE WILL BE OVERWRITTEN!
+---
+# prerequisetes:
+system-setup: {
+  arch: {
+    #automatic installation script: multiboot
+    keyboard-layout: {
+      $ask,
+      "loadkeys colemak",
+    }
+  }
+}
+prerequisites: {
+  llvm: {
+    clang,
+    ocaml,
+    haskell-core,
+    haskell-stack,
+    go
+  },
+  libyaml,
+  docker,
+  docker-compose,
+  node,
+}
+
+bootloader: {
+  grub
+}
+
+window manager: {
+  arch: {
+    graphics-driver: {$graphics-driver}
+  }
+}
+
+applications: {
+  gui: {
+    browser: {
+      firefox-developer-edition
+      canary
+      chrome
+    },
+    writing: {
+      osx|windows: scrivener
+    },
+    auxiliary: {
+      osx|windows: {
+        spotify
+        todoist
+        toggl
+        evernote
+      }
+    }
+  }
+}
+  # node/npm -> spawn script
+  # connector script -
+  # karabiner elements
+  # }
+  # brew installl macvim --with-cscope --with-lua --override-system-vim
+  # vim - with lua for OSX
+  # test-runner suite: TDD (DDD)
+  #  setting up base DEV_ENV
+  #writing suite
+  #  vim
+  #    plugins
+  #      goyo
+  #

@@ -1,0 +1,54 @@
+###
+# PINN type OS installation:
+# NEED REGISTRY FOR DIFFERENT OS_BUILDS
+# same card installation for PINN-style arm/raspberrypi builds
+# other os's will have more difficult installations
+###
+
+---
+
+os: {
+  type: {
+    windows,
+    arch,
+    ubuntu,
+    osx,
+    reactos,
+  },
+  containerization: {
+    # reflection of os types:
+    type,
+    self
+  },
+  sandboxing: {
+    # reflection of programs that will have their own containerized environment
+    bundles: {
+      programming: {
+        web: {
+          js: {
+            react: {
+              # get react-style basic libraries: other libraries etc
+              # that are commonly installed with react will have a separate tree-line;
+            },
+          },
+          elm: {
+            elm-platform
+          },
+          reasonml: {
+          },
+          graphql-server: {
+            # can reflect back on previous bundles.
+            # TODO: write custom resolver : machine learning algorithm :
+            # checking for validity and nesting of additionally installed tools.
+          }
+        },
+        dotnet: {
+
+        },
+        xcode: {
+
+        }
+      }
+    }
+  }
+}

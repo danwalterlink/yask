@@ -1,9 +1,12 @@
-FROM ubuntu:16.04
-LABEL maintainer="Luiz Filho <lfilho@gmail.com>"
+FROM alpine:latest
+LABEL maintainer="DanWalterLink <danwalterlink@gmail.com>"
 
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm-256color
+
+# Prompt for keyboard setting; if nothing entered:keyboard=englishUS
+RUN keyboardlayout={$Prompt: englishUS}
 
 # Bootstrapping packages needed for installation
 RUN \
@@ -16,7 +19,7 @@ RUN \
 
 # Set locale to UTF-8
 ENV LANGUAGE en_US.UTF-8
-ENV LANG en_US.UTF-8
+ENV LANG en_US.UTF-8\
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8 && \
   /usr/sbin/update-locale LANG=$LANG
 
@@ -42,13 +45,13 @@ RUN \
     tmux \
     vim \
     wget \
-    zsh && \
+    zsh  \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install dotfiles
-COPY . /root/.yadr
-RUN cd /root/.yadr && rake install
+COPY . /root/.yask
+RUN cd /root/.yask && npm install
 
 # Run a zsh session
 CMD [ "/bin/zsh" ]

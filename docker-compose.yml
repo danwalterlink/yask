@@ -3,6 +3,6 @@ services:
   dotfiles:
     build:
       context: .
-    image: yadr
+    image: yask
     volumes:
-      - ./:/root/.yadr/
+      - ./:/root/.yask/

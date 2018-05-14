@@ -111,7 +111,7 @@
 [core]
   autocrlf = false
   editor = vim
-	excludesfile = /Users/yggdrasil/.yadr/git/gitignore
+	excludesfile = /Users/yggdrasil/.yask/git/gitignore
 [advice]
   statusHints = false
 [diff]
