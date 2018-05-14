@@ -33,7 +33,7 @@ to keep a lean machine!
 Please let my crawler and machine-learning tools compare your settings with others, so I can improve the experience for everybody involved.
 
 bright minimalistic themes are the baseline for everything yask.
-switchable to dark minimalistic themes with different colored accents (chosen from bkgrColor?)
+switchable to dark minimalistic themes with different colored accents (chosen from bkgrColo?)
 
 I also try to follow the UNIX-philosophy of:
 - everything is a file (data)

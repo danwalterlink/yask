@@ -1,5 +1,6 @@
 custom/zsh
 
+node_modules
 vim/backups
 vim/view
 *un~
