@@ -1,63 +1,67 @@
-require 'rake'
-require 'fileutils'
-require File.join(File.dirname(__FILE__), 'bin', 'yask', 'vundle')
+// installer function
+async function install () {
+  baseEvaluation(OSTYPE, INSTALLDIR, )
+}
 
-desc "Hook our dotfiles into system-standard positions."
-task :install => [:submodule_init, :submodules] do
-  puts
-  puts "======================================================"
-  puts "Welcome to yask Installation."
-  puts "======================================================"
-  puts
+// parameter declaration
+const greeting = `
+  ======================================================
+  YASK INSTALLATION
+  ======================================================
+`
 
+// check system for ostype
+os = os.type();
+// import different setting basics for different os-types
+
+const install () => {
+  echo greeting;
+};
+ 
   install_homebrew if RUBY_PLATFORM.downcase.include?("darwin")
   install_rvm_binstubs
 
-  # this has all the runcoms from this directory.
+  // this has all the runcoms from this directory.
   install_files(Dir.glob('git/*')) if want_to_install?('git configs (color, aliases)')
   install_files(Dir.glob('irb/*')) if want_to_install?('irb/pry configs (more colorful)')
   install_files(Dir.glob('ruby/*')) if want_to_install?('rubygems config (faster/no docs)')
   install_files(Dir.glob('ctags/*')) if want_to_install?('ctags config (better js/ruby support)')
   install_files(Dir.glob('tmux/*')) if want_to_install?('tmux config')
   install_files(Dir.glob('vimify/*')) if want_to_install?('vimification of command line tools')
+
   if want_to_install?('vim configuration (highly recommended)')
     install_files(Dir.glob('{vim,vimrc}'))
-    Rake::Task["install_vundle"].execute
+    Task["install_vundle"].execute
   end
 
-  Rake::Task["install_prezto"].execute
+// Task["install_prezto"].execute
 
-  install_fonts
-
-  install_term_theme if RUBY_PLATFORM.downcase.include?("darwin")
-
-  run_bundle_config
-
-  success_msg("installed")
-end
-
-task :install_prezto do
+// install_fonts
+// prezto?
+install_prezto do
   if want_to_install?('zsh enhancements & prezto')
     install_prezto
   end
 end
 
 desc 'Updates the installation'
-task :update do
-  Rake::Task["vundle_migration"].execute if needs_migration_to_vundle?
-  Rake::Task["install"].execute
-  #TODO: for now, we do the same as install. But it would be nice
+task: update do
+Task["vundle_migration"].execute if needs_migration_to_vundle?
+Task["install"].execute
+
+// TODO: for now, we do the same as install. But it would be nice
   #not to clobber zsh files
+  // separate shell-styling files created
 end
 
-task :submodule_init do
+submodule_init do
   unless ENV["SKIP_SUBMODULES"]
     run %{ git submodule update --init --recursive }
   end
 end
 
 desc "Init and update submodules."
-task :submodules do
+task: submodules do
   unless ENV["SKIP_SUBMODULES"]
     puts "======================================================"
     puts "Downloading yask submodules...please wait"
@@ -72,17 +76,6 @@ task :submodules do
   end
 end
 
-desc "Performs migration from pathogen to vundle"
-task :vundle_migration do
-  puts "======================================================"
-  puts "Migrating from pathogen to vundle vim plugin manager. "
-  puts "This will move the old .vim/bundle directory to"
-  puts ".vim/bundle.old and replacing all your vim plugins with"
-  puts "the standard set of plugins. You will then be able to "
-  puts "manage your vim's plugin configuration by editing the "
-  puts "file .vim/vundles.vim"
-  puts "======================================================"
-
   Dir.glob(File.join('vim', 'bundle','**')) do |sub_path|
     run %{git config -f #{File.join('.git', 'config')} --remove-section submodule.#{sub_path}}
     # `git rm --cached #{sub_path}`
@@ -92,27 +85,24 @@ task :vundle_migration do
 end
 
 desc "Runs Vundle installer in a clean vim environment"
-task :install_vundle do
+install_vundle do
   puts "======================================================"
   puts "Installing and updating vundles."
   puts "The installer will now proceed to run PluginInstall to install vundles."
   puts "======================================================"
 
-  puts ""
-
-  vundle_path = File.join('vim','bundle', 'vundle')
+//  vundle_path = File.join('vim','bundle', 'vundle')
   unless File.exists?(vundle_path)
     run %{
       cd $HOME/.yask
-      git clone https://github.com/gmarik/vundle.git #{vundle_path}
+      git clone https:   //github.com/gmarik/vundle.git #{vundle_path}
     }
   end
 
-  Vundle::update_vundle
+  Vundle:: update_vundle
 end
 
-task :default => 'install'
-
+task: default => 'install'
 
 private
 def run(cmd)
@@ -133,7 +123,8 @@ end
 def run_bundle_config
   return unless system("which bundle")
 
-  bundler_jobs = number_of_cores - 1
+// running jobs independent of corenumbers
+  bundler_jobs = number_of_cores - 1  //!
   puts "======================================================"
   puts "Configuring Bundlers for parallel gem installation"
   puts "======================================================"
@@ -207,7 +198,7 @@ def install_term_theme
   end
 
   # Ask the user which theme he wants to install
-  message = "Which theme would you like to apply to your iTerm2 profile?"
+  message      = "Which theme would you like to apply to your iTerm2 profile?"
   color_scheme = ask message, iTerm_available_themes
 
   return if color_scheme == 'None'
@@ -216,7 +207,7 @@ def install_term_theme
 
   # Ask the user on which profile he wants to install the theme
   profiles = iTerm_profile_list
-  message = "I've found #{profiles.size} #{profiles.size>1 ? 'profiles': 'profile'} on your iTerm2 configuration, which one would you like to apply the Solarized theme to?"
+  message  = "I've found #{profiles.size} #{profiles.size>1 ? 'profiles': 'profile'} on your iTerm2 configuration, which one would you like to apply the Solarized theme to?"
   profiles << 'All'
   selected = ask message, profiles
 
@@ -232,7 +223,7 @@ def iTerm_available_themes
 end
 
 def iTerm_profile_list
-  profiles=Array.new
+  profiles = Array.new
   begin
     profiles <<  %x{ /usr/libexec/PlistBuddy -c "Print :'New Bookmarks':#{profiles.size}:Name" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null}
   end while $?.exitstatus==0
@@ -301,7 +292,7 @@ end
 
 def install_files(files, method = :symlink)
   files.each do |f|
-    file = f.split('/').last
+    file   = f.split('/').last
     source = "#{ENV["PWD"]}/#{f}"
     target = "#{ENV["HOME"]}/.#{file}"
 
@@ -314,7 +305,7 @@ def install_files(files, method = :symlink)
       run %{ mv "$HOME/.#{file}" "$HOME/.#{file}.backup" }
     end
 
-    if method == :symlink
+    if method ==: symlink
       run %{ ln -nfs "#{source}" "#{target}" }
     else
       run %{ cp -f "#{source}" "#{target}" }
@@ -343,7 +334,7 @@ end
 
 
 def list_vim_submodules
-  result=`git submodule -q foreach 'echo $name"||"\`git remote -v | awk "END{print \\\\\$2}"\`'`.select{ |line| line =~ /^vim.bundle/ }.map{ |line| line.split('||') }
+  result = `git submodule -q foreach 'echo $name"||"\`git remote -v | awk "END{print \\\\\$2}"\`'`.select{ |line| line =~ /^vim.bundle/ }.map{ |line| line.split('||') }
   Hash[*result.flatten]
 end
 

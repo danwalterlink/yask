@@ -24,7 +24,6 @@ const systemSettings (
   }) => {
     sysctl.settings = {
       baseSet: collateSettings( baseSettings ) => {
-
         return collatedSettings;
     }
   }
