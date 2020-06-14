@@ -1,3 +1,74 @@
+## Recommended OSX Tools
+
+ * NValt - Notational Velocity alternative fork - http://brettterpstra.com/project/nvalt/ - syncs with SimpleNote
+ * cVim
+ * homebrew
+
+# CMDER Windows terminal emulator
+Cmder for Windows makes it easy to work with the console
+
+### Install the gem
+
+```bash
+gem install jazz_hands
+```
+
+[Jazz hands](https://github.com/nixme/jazz_hands) is a nice bundling of all pry-related gems.
+
+### Use pry
+
+  * as irb: `pry`
+  * as rails console: `script/console --irb=pry`
+  * as a debugger: `require 'pry'; binding.pry` in your code (or just type `pry!<space>` to make vim do it)
+
+### Pry Customizations:
+
+ * `clear` command to clear screen
+ * `sql` command to execute something (within a rails console)
+ * `c` (continue) `n` (next) `s` (step) commands for debugging using pry-nav
+ * all objects displayed in readable format (colorized, sorted hash keys) - via awesome_print
+ * a few color modifications to make it more useable
+ * type `help` to see all the commands
+
+### Adding your own ZSH theme
+
+If you want to add your own zsh theme, you can place it in `~/.zsh.prompts` and it will automatically be picked up by the prompt loader.
+
+Make sure you follow the naming convention of `prompt_[name]_setup`
+
+```
+touch ~/.zsh.prompts/prompt_mytheme_setup
+```
+
+See also the [Prezto](https://github.com/sorin-ionescu/prezto) project for more info on themes.
+
+### Customizing ZSH with ~/.zsh.after/ and ~/.zsh.before/
+#### sourcing:
+  ~/.zshrc
+  ~/.zsh.before (overwritten by zshrc)
+  ~/.zsh.after
+!TODO: seems a lot like CSS!
+
+generating zshrc from javascript & serialized data-structures
+
+loadprober:
+  probe listed programs for entry-points for configuration.
+  Scanning current network for ports & assigning and starting up on demand, forwarding correct ports.
+
+If you want to customize your zsh experience, yask provides two hooks via `~/.zsh.after/` and `~/.zsh.before/` directories.
+In these directories, you can place files to customize things that load before and after other zsh customizations that come from `~/.yask/zsh/*`
+
+
+### Overriding the theme
+
+To override the theme, you can do something like this:
+
+```
+echo "prompt yourprompt" > ~/.zsh.after/prompt.zsh
+```
+
+Next time you load your shell, this file will be read and your prompt will be the youprompt prompt. Use `prompt -l` to see the available prompts.
+
 * tComment - gcc to comment a line, gcp to comment blocks, nuff said
 * necomplcache - intelligent and fast complete as you type, and added Command-Space to select a completion (same as Ctrl-N)
 * vim-javascript-syntax - better highlighting
