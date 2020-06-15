@@ -30,7 +30,7 @@ class Hypr extends FunctionObject {
         , "v": ["^", "v"] }
 
     hooks(byRef array:= hyprArray) {
-        memoize()
+        memoize(array)
     }
 
     latch(byRef hooks, mods) {
@@ -45,10 +45,10 @@ class Hypr extends FunctionObject {
 
     static hyproid := InputHook()
 
-    Call := 
+    Call := Func(FunctionName)
 }
 
-Hypr.key
+Hypr.modKey := "BackSpace"
 
 
 #IfWinNotActive, SC2, overwatch
