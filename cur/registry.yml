@@ -1,0 +1,8 @@
+# TOC
+
+.local.vimrc: ~/.local.vimrc
+.after.vimrc: ~/.after.vimrc
+.tmux.conf: ~/.tmux.conf
+.tmux.conf.local: ~/.tmux.conf.local
+karabiner.json: ~/.config/karabiner/karabiner.json
+
